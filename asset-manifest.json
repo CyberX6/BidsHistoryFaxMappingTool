@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/BidsHistoryFaxMappingTool/static/js/main.28f7b5c9.chunk.js",
-    "main.js.map": "/BidsHistoryFaxMappingTool/static/js/main.28f7b5c9.chunk.js.map",
+    "main.js": "/BidsHistoryFaxMappingTool/static/js/main.987e6a3a.chunk.js",
+    "main.js.map": "/BidsHistoryFaxMappingTool/static/js/main.987e6a3a.chunk.js.map",
     "runtime-main.js": "/BidsHistoryFaxMappingTool/static/js/runtime-main.10ae0c94.js",
     "runtime-main.js.map": "/BidsHistoryFaxMappingTool/static/js/runtime-main.10ae0c94.js.map",
     "static/js/2.67ed68ab.chunk.js": "/BidsHistoryFaxMappingTool/static/js/2.67ed68ab.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.10ae0c94.js",
     "static/js/2.67ed68ab.chunk.js",
-    "static/js/main.28f7b5c9.chunk.js"
+    "static/js/main.987e6a3a.chunk.js"
   ]
 }
