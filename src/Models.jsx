@@ -26,7 +26,10 @@ export const Models = ({ classes }) => {
 
 	useEffect(
 		() =>
-			fetch('http://api2.loc/ka/leadGenerator/getMappedModels')
+			fetch(
+				process.env.REACT_APP_API_ENDPOINT +
+					'leadGenerator/getMappedModels'
+			)
 				.then(res => res.json())
 				.then(res => setRows(res.data)),
 		[]
@@ -34,7 +37,10 @@ export const Models = ({ classes }) => {
 
 	useEffect(
 		() =>
-			fetch('http://api2.loc/ka/leadGenerator/getMans?type=eveything')
+			fetch(
+				process.env.REACT_APP_API_ENDPOINT +
+					'leadGenerator/getMans?type=eveything'
+			)
 				.then(res => res.json())
 				.then(res => setForeignMans(res.data)),
 		[]
@@ -42,7 +48,7 @@ export const Models = ({ classes }) => {
 
 	useEffect(
 		() =>
-			fetch('http://api2.loc/ka/leadGenerator/mans')
+			fetch(process.env.REACT_APP_API_ENDPOINT + 'leadGenerator/mans')
 				.then(res => res.json())
 				.then(res => setLocalMans(res.data)),
 		[]
@@ -58,15 +64,18 @@ export const Models = ({ classes }) => {
 				model => model.slug === selectedForeignModel.slug
 			);
 
-			fetch('http://api2.loc/ka/leadGenerator/setModelID', {
-				method: 'POST',
-				body: JSON.stringify({
-					man_id: selectedLocalMan,
-					model_name: selectedForeignModel.name,
-					local_id: selectedLocalModel,
-					slug: selectedForeignModel.slug
-				})
-			}).then(() => {
+			fetch(
+				process.env.REACT_APP_API_ENDPOINT + 'leadGenerator/setModelID',
+				{
+					method: 'POST',
+					body: JSON.stringify({
+						man_id: selectedLocalMan,
+						model_name: selectedForeignModel.name,
+						local_id: selectedLocalModel,
+						slug: selectedForeignModel.slug
+					})
+				}
+			).then(() => {
 				setRows([
 					{
 						model_name: localModel.model_name,

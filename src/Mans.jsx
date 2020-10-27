@@ -22,7 +22,7 @@ export const Mans = ({ classes }) => {
 
 	useEffect(
 		() =>
-			fetch('http://api2.loc/ka/leadGenerator/getMans')
+			fetch(process.env.REACT_APP_API_ENDPOINT + 'leadGenerator/getMans')
 				.then(res => res.json())
 				.then(res => setRows(res.data)),
 		[]
@@ -30,7 +30,10 @@ export const Mans = ({ classes }) => {
 
 	useEffect(
 		() =>
-			fetch('http://api2.loc/ka/leadGenerator/getMans?type=all')
+			fetch(
+				process.env.REACT_APP_API_ENDPOINT +
+					'leadGenerator/getMans?type=all'
+			)
 				.then(res => res.json())
 				.then(res => setForeignMans(res.data)),
 		[]
@@ -38,7 +41,7 @@ export const Mans = ({ classes }) => {
 
 	useEffect(
 		() =>
-			fetch('http://api2.loc/ka/leadGenerator/mans')
+			fetch(process.env.REACT_APP_API_ENDPOINT + 'leadGenerator/mans')
 				.then(res => res.json())
 				.then(res => setLocalMans(res.data)),
 		[]
@@ -54,13 +57,16 @@ export const Mans = ({ classes }) => {
 				man => man.foreign_id === selectedForeignMan
 			);
 
-			fetch('http://api2.loc/ka/leadGenerator/setManID', {
-				method: 'POST',
-				body: JSON.stringify({
-					local_id: selectedLocalMan,
-					foreign_id: selectedForeignMan
-				})
-			}).then(() => {
+			fetch(
+				process.env.REACT_APP_API_ENDPOINT + 'leadGenerator/setManID',
+				{
+					method: 'POST',
+					body: JSON.stringify({
+						local_id: selectedLocalMan,
+						foreign_id: selectedForeignMan
+					})
+				}
+			).then(() => {
 				setRows([
 					{
 						man_name: localMan.man_name,
